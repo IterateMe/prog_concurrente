@@ -139,6 +139,7 @@ public:
 
         try {
             // Read the file ...
+            // AJOUT D UN MUTEX ??? LOCK_GUARD
             image_in = nsvgParseFromFile(fname_in.c_str(), "px", 0);
             if (image_in == nullptr) {
                 std::string msg = "Cannot parse '" + fname_in + "'.";
@@ -305,6 +306,8 @@ public:
     ///
     /// If the definition is invalid, error messages are sent to stderr and 
     /// nothing is queued.
+
+    /// PRODUCTEUR
     void parseAndQueue(const std::string& line_org)
     {
         std::queue<TaskDef> queue;
@@ -323,6 +326,8 @@ public:
 
 private:
     /// \brief Queue processing thread function.
+
+    /// CONSOMMATEUR ------------------------------
     void processQueue()
     {
         while (should_run_) {
