@@ -12,15 +12,22 @@
 #include <string>
 #include <cstring>
 #include <thread>
+#include <stdlib.h>
+#include <mutex>
+#include <condition_variable>
 
 namespace gif643 {
 
 const size_t    BPP         = 4;    // Bytes per pixel
 const float     ORG_WIDTH   = 48.0; // Original SVG image width in px.
-const int       NUM_THREADS = 1;    // Default value, changed by argv. 
+int             NUM_THREADS = 1;    // Default value, changed by argv. 
 
 using PNGDataVec = std::vector<char>;
 using PNGDataPtr = std::shared_ptr<PNGDataVec>;
+
+std::mutex              mutex_process_queue;
+std::mutex              mutex_svg_file;
+std::condition_variable data_cond_process_queue;
 
 /// \brief Wraps callbacks from stbi_image_write
 //
@@ -106,7 +113,7 @@ struct TaskDef
 
 /// \brief A class representing the processing of one SVG file to a PNG stream.
 ///
-/// Not thread safe !
+/// Not thread safe !  ---------------------------------------------------------------
 ///
 class TaskRunner
 {
@@ -139,7 +146,8 @@ public:
 
         try {
             // Read the file ...
-            // AJOUT D UN MUTEX ??? LOCK_GUARD
+            
+            std::lock_guard<std::mutex> lock_svg(mutex_svg_file);           // USING A LOCK GARD HERE SINCE BECAUSE image_in IS A POINTER OTHER METHODS MIGHT WANT TO USE IT
             image_in = nsvgParseFromFile(fname_in.c_str(), "px", 0);
             if (image_in == nullptr) {
                 std::string msg = "Cannot parse '" + fname_in + "'.";
@@ -231,11 +239,12 @@ public:
         if (n_threads <= 0) {
             std::cerr << "Warning, incorrect number of threads ("
                       << n_threads
-                      << "), setting to "
-                      << NUM_THREADS
+                      << ")"
                       << std::endl;
-            n_threads = NUM_THREADS;
+            n_threads = 1;
         }
+
+        std::cerr << "Creating " << n_threads << " for processing queue" << std::endl;
 
         for (int i = 0; i < n_threads; ++i) {
             queue_threads_.push_back(
@@ -307,14 +316,16 @@ public:
     /// If the definition is invalid, error messages are sent to stderr and 
     /// nothing is queued.
 
-    /// PRODUCTEUR
+    /// PRODUCTEUR   ---------------------------------------------------------------
     void parseAndQueue(const std::string& line_org)
     {
-        std::queue<TaskDef> queue;
+        //std::queue<TaskDef> queue;                       // ---------------- PAS CERTAIN DE COMPRENDRE SON UTILITÉ CAR NE SEMBLE PAS ETRE UTILISE -----------------------
         TaskDef def;
         if (parse(line_org, def)) {
+            std::lock_guard<std::mutex> lock(mutex_process_queue);                      // AJOUT D UN LOCK GARD POUR PROTEGER L ACCES A TASK QUEUE
             std::cerr << "Queueing task '" << line_org << "'." << std::endl;
             task_queue_.push(def);
+            data_cond_process_queue.notify_one();                                       // ENVOIE D UN SIGNAL AFIN DE PERMETTRE A UN THREAD EN ATTENTE DE S ACTIVER
         }
     }
 
@@ -327,16 +338,28 @@ public:
 private:
     /// \brief Queue processing thread function.
 
-    /// CONSOMMATEUR ------------------------------
+    /// CONSOMMATEUR ----------------------------------------------------------------
     void processQueue()
     {
+        
         while (should_run_) {
-            if (!task_queue_.empty()) {
-                TaskDef task_def = task_queue_.front();
-                task_queue_.pop();
-                TaskRunner runner(task_def);
-                runner();
-            }
+            // if (!task_queue_.empty()) {
+            //     TaskDef task_def = task_queue_.front();
+            //     task_queue_.pop();
+            //     TaskRunner runner(task_def);
+            //     runner();
+            // }
+            std::unique_lock<std::mutex> lk(mutex_process_queue);                   // CREATION D UN LOCK PERMETTANT D ATTENDRE L ARRIVEE D UN ELEMENT DANS LA QUEUE SANS UTILISER INUTILEMENT DE RESSOURCES
+            data_cond_process_queue.wait(
+                lk, [this]{
+                    return !task_queue_.empty();
+                }
+            );
+            TaskDef task_def = task_queue_.front();
+            task_queue_.pop();
+            TaskRunner runner(task_def);
+            runner();
+            lk.unlock();
         }
     }
 };
@@ -348,9 +371,9 @@ int main(int argc, char** argv)
     using namespace gif643;
 
     std::ifstream file_in;
-
     if (argc >= 2 && (strcmp(argv[1], "-") != 0)) {
         file_in.open(argv[1]);
+
         if (file_in.is_open()) {
             std::cin.rdbuf(file_in.rdbuf());
             std::cerr << "Using " << argv[1] << "..." << std::endl;
@@ -360,22 +383,25 @@ int main(int argc, char** argv)
                         << "', using stdin (press CTRL-D for EOF)." 
                         << std::endl;
         }
-    } else {
-        std::cerr << "Using stdin (press CTRL-D for EOF)." << std::endl;
-    }
+    } else if(argc == 3 && (strcmp(argv[1], "-") == 0)){
+        NUM_THREADS = atoi(argv[2]);
+        std::cerr << "Using stdin with " << NUM_THREADS << " threads (press CTRL-D for EOF)." << std::endl;
 
-    // TODO: change the number of threads from args.
-    Processor proc;
+    } else {
+        std::cerr << "Using stdin without threads (press CTRL-D for EOF)." << std::endl;
+    }
     
+    Processor proc;
+
     while (!std::cin.eof()) {
 
         std::string line, line_org;
-
         std::getline(std::cin, line);
         if (!line.empty()) {
             proc.parseAndQueue(line);
         }
     }
+
 
     if (file_in.is_open()) {
         file_in.close();
