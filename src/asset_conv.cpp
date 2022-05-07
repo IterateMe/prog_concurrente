@@ -147,7 +147,7 @@ public:
         try {
             // Read the file ...
             
-            std::lock_guard<std::mutex> lock_svg(mutex_svg_file);           // USING A LOCK GARD HERE SINCE BECAUSE image_in IS A POINTER OTHER METHODS MIGHT WANT TO USE IT
+            //std::lock_guard<std::mutex> lock_svg(mutex_svg_file);           // USING A LOCK GARD HERE SINCE BECAUSE image_in IS A POINTER OTHER METHODS MIGHT WANT TO USE IT
             image_in = nsvgParseFromFile(fname_in.c_str(), "px", 0);
             if (image_in == nullptr) {
                 std::string msg = "Cannot parse '" + fname_in + "'.";
@@ -244,7 +244,7 @@ public:
             n_threads = 1;
         }
 
-        std::cerr << "Creating " << n_threads << " for processing queue" << std::endl;
+        std::cerr << "Creating " << n_threads << " threads for processing queue" << std::endl;
 
         for (int i = 0; i < n_threads; ++i) {
             queue_threads_.push_back(
@@ -322,8 +322,8 @@ public:
         //std::queue<TaskDef> queue;                       // ---------------- PAS CERTAIN DE COMPRENDRE SON UTILITÉ CAR NE SEMBLE PAS ETRE UTILISE -----------------------
         TaskDef def;
         if (parse(line_org, def)) {
-            std::lock_guard<std::mutex> lock(mutex_process_queue);                      // AJOUT D UN LOCK GARD POUR PROTEGER L ACCES A TASK QUEUE
             std::cerr << "Queueing task '" << line_org << "'." << std::endl;
+            std::lock_guard<std::mutex> lock(mutex_process_queue);                      // AJOUT D UN LOCK GARD POUR PROTEGER L ACCES A TASK QUEUE
             task_queue_.push(def);
             data_cond_process_queue.notify_one();                                       // ENVOIE D UN SIGNAL AFIN DE PERMETTRE A UN THREAD EN ATTENTE DE S ACTIVER
         }
@@ -357,9 +357,12 @@ private:
             );
             TaskDef task_def = task_queue_.front();
             task_queue_.pop();
+            lk.unlock();
             TaskRunner runner(task_def);
             runner();
-            lk.unlock();
+            if(task_queue_.empty()){
+                should_run_ = false;
+            }
         }
     }
 };
@@ -402,11 +405,11 @@ int main(int argc, char** argv)
         }
     }
 
-
     if (file_in.is_open()) {
         file_in.close();
     }
 
     // Wait until the processor queue's has tasks to do.
     while (!proc.queueEmpty()) {};
+
 }
