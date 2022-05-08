@@ -1,0 +1,105 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "AssetConv",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "asset_conv::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-asset_conv-Debug-b84511687bb0c48c676a.json",
+					"name" : "asset_conv",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "lab_ex1::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lab_ex1-Debug-ba221adeae9370d8b49a.json",
+					"name" : "lab_ex1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "lab_ex2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lab_ex2-Debug-1868852463771981759f.json",
+					"name" : "lab_ex2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "lab_ex3::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lab_ex3-Debug-b2132ea3f1010a1a0b02.json",
+					"name" : "lab_ex3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nanosvg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nanosvg-Debug-41f8383a4a3d40aacb7d.json",
+					"name" : "nanosvg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stb_image::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stb_image-Debug-25579faf7dba6397acc0.json",
+					"name" : "stb_image",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/wgrav/Documents/S6_APP1_W/cmake-build-debug",
+		"source" : "C:/Users/wgrav/Documents/S6_APP1_W"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
