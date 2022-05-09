@@ -173,7 +173,7 @@ public:
 
             // Write it out ...
             std::ofstream file_out(fname_out, std::ofstream::binary);
-            auto data = writer.getData();
+            auto data = writer.getData();                                     // GET DATA 
             file_out.write(&(data->front()), data->size());
             
         } catch (std::runtime_error e) {
@@ -319,7 +319,7 @@ public:
     /// PRODUCTEUR   ---------------------------------------------------------------
     void parseAndQueue(const std::string& line_org)
     {
-        //std::queue<TaskDef> queue;                       // ---------------- PAS CERTAIN DE COMPRENDRE SON UTILITÉ CAR NE SEMBLE PAS ETRE UTILISE -----------------------
+        //std::queue<TaskDef> queue;                                                    // ---------------- PAS CERTAIN DE COMPRENDRE SON UTILITÉ CAR NE SEMBLE PAS ETRE UTILISE -----------------------
         TaskDef def;
         if (parse(line_org, def)) {
             std::cerr << "Queueing task '" << line_org << "'." << std::endl;
