@@ -25,8 +25,11 @@ int             NUM_THREADS = 1;    // Default value, changed by argv.
 using PNGDataVec = std::vector<char>;
 using PNGDataPtr = std::shared_ptr<PNGDataVec>;
 
+using PNGHashMap = std::unordered_map<std::string, PNGDataPtr>;
+PNGHashMap png_cache_;
+
 std::mutex              mutex_process_queue;
-std::mutex              mutex_svg_file;
+std::mutex hashmap_mutex;
 std::condition_variable data_cond_process_queue;
 
 /// \brief Wraps callbacks from stbi_image_write
@@ -146,36 +149,49 @@ public:
 
         try {
             // Read the file ...
-            
+
+            std::unique_lock<std::mutex> u_lock(hashmap_mutex); //lock pour la cache
             //std::lock_guard<std::mutex> lock_svg(mutex_svg_file);           // USING A LOCK GARD HERE SINCE BECAUSE image_in IS A POINTER OTHER METHODS MIGHT WANT TO USE IT
-            image_in = nsvgParseFromFile(fname_in.c_str(), "px", 0);
-            if (image_in == nullptr) {
-                std::string msg = "Cannot parse '" + fname_in + "'.";
-                throw std::runtime_error(msg.c_str());
+            if (png_cache_.find(fname_in) == png_cache_.end()) // Si non trouvé dans la cache
+                {
+                image_in = nsvgParseFromFile(fname_in.c_str(), "px", 0);
+                if (image_in == nullptr) {
+                    std::string msg = "Cannot parse '" + fname_in + "'.";
+                    throw std::runtime_error(msg.c_str());
+                }
+                u_lock.unlock();
+                // Raster it ...
+                std::vector<unsigned char> image_data(image_size, 0);
+                rast = nsvgCreateRasterizer();
+                nsvgRasterize(rast,
+                              image_in,
+                              0,
+                              0,
+                              scale,
+                              &image_data[0],
+                              width,
+                              height,
+                              stride);
+
+                // Compress it ...
+                PNGWriter writer;
+                writer(width, height, BPP, &image_data[0], stride);
+                u_lock.lock();
+                // Add it to the caching layer
+                png_cache_[fname_in] = writer.getData();
+                u_lock.unlock();
+                // Write it out ...
+                std::ofstream file_in(fname_in, std::ofstream::binary);
+                auto data = writer.getData();
+                file_in.write(&(data->front()), data->size());
+                }
+            else{   // Si trouvé dans la cache, le sortir et l'écrire
+                // printf("****Utilisation d'un fichier en cache\n");   // Utilisé pour tester
+                auto data = png_cache_[fname_in];
+                u_lock.unlock();
+                std::ofstream file_in(fname_in, std::ofstream::binary);
+                file_in.write(&(data->front()), data->size());
             }
-
-            // Raster it ...
-            std::vector<unsigned char> image_data(image_size, 0);
-            rast = nsvgCreateRasterizer();
-            nsvgRasterize(rast,
-                          image_in,
-                          0,
-                          0,
-                          scale,
-                          &image_data[0],
-                          width,
-                          height,
-                          stride); 
-
-            // Compress it ...
-            PNGWriter writer;
-            writer(width, height, BPP, &image_data[0], stride);
-
-            // Write it out ...
-            std::ofstream file_out(fname_out, std::ofstream::binary);
-            auto data = writer.getData();
-            file_out.write(&(data->front()), data->size());
-            
         } catch (std::runtime_error e) {
             std::cerr << "Exception while processing "
                       << fname_in

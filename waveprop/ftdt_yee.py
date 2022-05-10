@@ -12,6 +12,7 @@ def curl_E(E):
 
     curl_E[:-1, :, :, 2] += E[1:, :, :, 1] - E[:-1, :, :, 1]
     curl_E[:, :-1, :, 2] -= E[:, 1:, :, 0] - E[:, :-1, :, 0]
+    ##print("curl_E %s" % (str(curl_E)))
     return curl_E
 
 def curl_H(H):

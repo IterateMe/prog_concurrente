@@ -31,6 +31,14 @@ data3D = np.array([                 # Cube 2x2x2
     [[1,2], [3,4]],                 # Première couche 2x2
     [[5,6], [7,8]]                  # Deuxième couche 2x2
 ])
+data4D = np.array([                 # Cube 2x2x2
+    [[[1, 2, 3], [4, 5, 6]],                 # Première couche 2x2
+     [[7, 8, 9], [10, 11, 12]]],
+    [[[10, 20, 30], [40, 50, 60]],  # Première couche 2x2
+     [[70, 80, 90], [100, 110, 120]]],
+    [[[100, 200, 300], [400, 500, 600]],  # Première couche 2x2
+     [[700, 800, 900], [1000, 1100, 1200]]]
+])
 
 ### QUESTIONS ###
 
@@ -39,32 +47,35 @@ q1      = data1D[:]
 q1_rep  = data1D
 
 # Q2 - Les trois premiers éléments du vecteur 1D
-q2      = data1D[:]
+q2      = data1D[:-2]
 q2_rep  = np.array([1,2,3])
 
 # Q3 - Les deux derniers éléments du vecteur 1D
-q3      = data1D[:]
+q3      = data1D[3:]
 q3_rep  = np.array([4,5])
 
 # Q4 - L'élément (2,3) de la matrice 2D (attention: 1 est le premier élément)
-q4      = data2D[:]
+q4      = data2D[(1,2)]
 q4_rep  = 8
 
 # Q5 - La dernière colonne de la matrice 2D, en utilisant un indice négatif
-q5      = data2D[:]
+q5      = data2D[:,-1]
 q5_rep  = np.array([5, 10, 15, 20, 25])
 
 # Q6 - La couche inférieure du cube 2x2x2
-q6      = data3D[:]
+q6      = data3D[1,:]
 q6_rep  = np.array([[5,6], [7,8]])
 
 # Q7 - Dans la première rangée de la matrice 2D, la soustraction des éléments 2-5 et 1-4,
 #      donc (2,3,4,5) - (1,2,3,4) = (1,1,1,1)
-q7      = data2D[:]
+q7      = data2D[0,1:]-data2D[0,:-1]
 q7_rep  = np.array([1,1,1,1])
 
+q8      = data4D[:, 1:, :, 2]-data4D[:, :-1, :, 2]
+print("%s - %s = %s"%(str(data4D[:, 1:, :, 2]),str(data4D[:, :-1, :, 2]), str(q8)))
+q8_rep  = np.array([1,1,1,1])
 ### VÉRIFICATION ###
 
-qs = [q1,q2,q3,q4,q5,q6,q7]
-rs = [q1_rep, q2_rep, q3_rep, q4_rep, q5_rep, q6_rep, q7_rep]
+qs = [q1,q2,q3,q4,q5,q6,q7,q8]
+rs = [q1_rep, q2_rep, q3_rep, q4_rep, q5_rep, q6_rep, q7_rep, q8_rep]
 test(qs, rs)
