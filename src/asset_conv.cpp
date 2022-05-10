@@ -192,6 +192,7 @@ public:
                 std::ofstream file_in(fname_in, std::ofstream::binary);
                 file_in.write(&(data->front()), data->size());
             }
+
         } catch (std::runtime_error e) {
             std::cerr << "Exception while processing "
                       << fname_in
@@ -335,7 +336,7 @@ public:
     /// PRODUCTEUR   ---------------------------------------------------------------
     void parseAndQueue(const std::string& line_org)
     {
-        //std::queue<TaskDef> queue;                       // ---------------- PAS CERTAIN DE COMPRENDRE SON UTILITÉ CAR NE SEMBLE PAS ETRE UTILISE -----------------------
+        //std::queue<TaskDef> queue;                                                    // ---------------- PAS CERTAIN DE COMPRENDRE SON UTILITÉ CAR NE SEMBLE PAS ETRE UTILISE -----------------------
         TaskDef def;
         if (parse(line_org, def)) {
             std::cerr << "Queueing task '" << line_org << "'." << std::endl;
