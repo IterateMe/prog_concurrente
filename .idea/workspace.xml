@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c4edb656-e4f3-4253-b83d-c77d8a42abfc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/data/ic_adb_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_adb_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_airline_seat_flat_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_airline_seat_flat_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_airline_seat_flat_angled_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_airline_seat_flat_angled_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_airline_seat_individual_suite_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_airline_seat_individual_suite_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_airline_seat_legroom_extra_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_airline_seat_legroom_extra_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_airline_seat_legroom_normal_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_airline_seat_legroom_normal_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_airline_seat_legroom_reduced_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_airline_seat_legroom_reduced_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_airline_seat_recline_extra_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_airline_seat_recline_extra_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_airline_seat_recline_normal_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_airline_seat_recline_normal_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_bluetooth_audio_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_bluetooth_audio_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_confirmation_number_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_confirmation_number_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_disc_full_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_disc_full_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_do_not_disturb_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_do_not_disturb_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_do_not_disturb_alt_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_do_not_disturb_alt_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_do_not_disturb_off_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_do_not_disturb_off_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_do_not_disturb_on_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_do_not_disturb_on_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_drive_eta_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_drive_eta_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_enhanced_encryption_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_enhanced_encryption_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_event_available_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_event_available_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_event_busy_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_event_busy_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_event_note_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_event_note_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_folder_special_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_folder_special_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_live_tv_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_live_tv_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_mms_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_mms_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_more_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_more_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_network_check_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_network_check_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_network_locked_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_network_locked_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_no_encryption_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_no_encryption_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_ondemand_video_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_ondemand_video_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_personal_video_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_personal_video_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_phone_bluetooth_speaker_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_phone_bluetooth_speaker_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_phone_forwarded_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_phone_forwarded_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_phone_in_talk_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_phone_in_talk_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_phone_locked_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_phone_locked_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_phone_missed_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_phone_missed_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_phone_paused_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_phone_paused_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_power_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_power_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_priority_high_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_priority_high_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_rv_hookup_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_rv_hookup_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_sd_card_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_sd_card_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_sim_card_alert_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_sim_card_alert_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_sms_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_sms_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_sms_failed_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_sms_failed_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_sync_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_sync_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_sync_disabled_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_sync_disabled_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_sync_problem_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_sync_problem_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_system_update_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_system_update_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_tap_and_play_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_tap_and_play_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_time_to_leave_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_time_to_leave_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_vibration_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_vibration_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_voice_chat_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_voice_chat_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_vpn_lock_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_vpn_lock_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_wc_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_wc_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ic_wifi_48px.svg" beforeDir="false" afterPath="$PROJECT_DIR$/data/ic_wifi_48px.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/asset_conv.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/asset_conv.cpp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="28yV0nzfgMKC9clCEh7LI7brYPX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="cmake.loaded.for.project" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c4edb656-e4f3-4253-b83d-c77d8a42abfc" name="Changes" comment="" />
+      <created>1652188592524</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1652188592524</updated>
+      <workItem from="1652188594222" duration="543000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
