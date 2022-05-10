@@ -1,0 +1,33 @@
+#include <vector>
+#include <string>
+#include <cstring>
+#include <thread>
+#include <stdlib.h>
+#include <mutex>
+#include <condition_variable>
+
+namespace src{
+    
+    class Matrix
+    {
+    private:
+        std::vector<float> data;
+        int X;
+        int Y;
+        int Z;
+        int A;
+
+    public:
+        void Matrix
+
+    }
+
+
+    
+}
+
+int main(int argc, char** argv)
+{
+    using namespace src;
+    
+}
